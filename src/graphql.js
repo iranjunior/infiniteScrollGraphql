@@ -1,10 +1,17 @@
 import gql from 'graphql-tag'
-export const GET_POKEMONS = gql`
-    query {
-        pokemons(first: 150) {
-            id
-            name
-            image
-          }
+export const GET_REPOSITORIES = gql`
+query { 
+    user(login: "iranjunior") {
+        repositories (first: 5){
+            edges {
+                cursor,
+                    node {
+                         id,
+                         name,
+                         description,
+                    }
+                }
+            }
+        } 
     }
 `;
